@@ -8,7 +8,7 @@ For measuring DOM nodes.
 
 Example usage:
 
-```
+```typescript
 const Item = props => {
   const {dimensions, measureRef} = useDimensions({liveMeasure:true});
   //     ^ null or sizes  ^ pass into the ref prop of the item to measure
@@ -21,4 +21,29 @@ const Item = props => {
     /> : null}
   </Placeholder>
 };
+```
+
+useLocalStorage
+---
+
+For saving and retrieving items from local storage
+
+```typescript
+
+type MyData = {
+  foo:string,
+  bar:number[],
+}
+
+const initialData = {
+  foo: 'hello',
+  bar: [1,2,3],
+}
+
+const Component = () => {
+ const [data, setData] = useLocalStorage<MyData>('my-data-key', initialData);
+ // data and setData now work just like useState.
+
+ return <div></div>
+} 
 ```
