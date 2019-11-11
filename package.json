@@ -1,6 +1,6 @@
 {
-  "name": "calvium-hooks-web",
-  "version": "0.1.0",
+  "name": "@calvium/react-hooks-web",
+  "version": "0.1.1",
   "license": "MIT",
   "author": "Ben Clayton",
   "main": "dist/index.js",
@@ -23,9 +23,7 @@
     "check-prettier": "prettier --config .prettierrc.js --list-different --write 'src/**/**.?(ts|tsx|js|jsx|md|css)'"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "styled-components": ">= 4.0.0",
-    "react-router-dom": ">= 5.0.0"
+    "react": ">=16"
   },
   "husky": {
     "hooks": {
