@@ -1,5 +1,5 @@
 // Hook
-import {useState} from 'react';
+import { useState } from 'react';
 
 type SetValueParam<T> = T | ((value: T) => T);
 
@@ -11,7 +11,10 @@ export type SetValueLocalStorage<T> = (value: SetValueParam<T>) => void;
  * Source: https://usehooks.com/useLocalStorage/
  * Extended to use generic types
  */
-export function useLocalStorage<T>(key: string, initialValue: T): [T, SetValueLocalStorage<T>] {
+export function useLocalStorage<T>(
+  key: string,
+  initialValue: T
+): [T, SetValueLocalStorage<T>] {
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
@@ -32,7 +35,8 @@ export function useLocalStorage<T>(key: string, initialValue: T): [T, SetValueLo
   const setValue = (value: SetValueParam<T>) => {
     try {
       // Allow value to be a function so we have same API as useState
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value;
       // Save state
       setStoredValue(valueToStore);
       // Save to local storage
