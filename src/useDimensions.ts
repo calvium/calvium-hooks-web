@@ -1,6 +1,7 @@
-import {useState, useCallback, useLayoutEffect} from "react";
+import {useState, useCallback, useLayoutEffect} from 'react';
 
 // source https://github.com/Swizec/useDimensions/blob/master/src/index.ts
+// Altered to pass TS strict checks
 
 export interface DimensionObject {
   width: number;
@@ -17,21 +18,20 @@ export type UseDimensionsHook = {
   /**
    * put on the 'ref' prop of the component to measure
    */
-  measureRef: (node: any /* HTMLElement is not right */) => void,
+  measureRef: (node: any /* HTMLElement is not right */) => void;
   /**
    * the dimensions appear here when ready
    */
-  dimensions: null | DimensionObject,
+  dimensions: null | DimensionObject;
   /**
    * returns the DOM node
    */
-  node: HTMLElement | null // BC added null here and converted to an object
+  node: HTMLElement | null; // BC added null here and converted to an object
 };
 
 export interface UseDimensionsArgs {
   liveMeasure?: boolean;
 }
-
 
 function getDimensionObject(node: HTMLElement): DimensionObject {
   const rect = node.getBoundingClientRect();
@@ -39,12 +39,12 @@ function getDimensionObject(node: HTMLElement): DimensionObject {
   return {
     width: rect.width,
     height: rect.height,
-    top: "x" in rect ? rect.x : rect.top,
-    left: "y" in rect ? rect.y : rect.left,
-    x: "x" in rect ? rect.x : rect.left,
-    y: "y" in rect ? rect.y : rect.top,
+    top: rect.x ?? rect.top,
+    left: rect.y ?? rect.left,
+    x: rect.x ?? rect.left,
+    y: rect.y ?? rect.top,
     right: rect.right,
-    bottom: rect.bottom
+    bottom: rect.bottom,
   };
 }
 
@@ -57,9 +57,7 @@ function getDimensionObject(node: HTMLElement): DimensionObject {
  *
  * Usage: assign the returned 'ref' object to the ref prop of the component to measure
  */
-function useDimensions({
-                         liveMeasure = true
-                       }: UseDimensionsArgs = {}): UseDimensionsHook {
+function useDimensions({liveMeasure = true}: UseDimensionsArgs = {}): UseDimensionsHook {
   const [dimensions, setDimensions] = useState<DimensionObject | null>(null);
   const [node, setNode] = useState<null | HTMLElement>(null);
 
@@ -71,24 +69,25 @@ function useDimensions({
     if (node) {
       const measure = () =>
         window.requestAnimationFrame(() => {
-            return setDimensions(getDimensionObject(node));
-          }
-        );
+          return setDimensions(getDimensionObject(node));
+        });
       measure();
 
       if (liveMeasure) {
-        window.addEventListener("resize", measure);
-        window.addEventListener("scroll", measure);
+        window.addEventListener('resize', measure);
+        window.addEventListener('scroll', measure);
 
         return () => {
-          window.removeEventListener("resize", measure);
-          window.removeEventListener("scroll", measure);
+          window.removeEventListener('resize', measure);
+          window.removeEventListener('scroll', measure);
         };
       }
+
     }
+    return undefined;
   }, [node, liveMeasure]);
 
   return {measureRef: ref, dimensions, node};
 }
 
-export default useDimensions;
+export {useDimensions};
