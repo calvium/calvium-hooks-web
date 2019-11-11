@@ -1,4 +1,4 @@
-import {useState, useCallback, useLayoutEffect} from 'react';
+import { useState, useCallback, useLayoutEffect } from 'react';
 
 // source https://github.com/Swizec/useDimensions/blob/master/src/index.ts
 // Altered to pass TS strict checks
@@ -57,7 +57,9 @@ function getDimensionObject(node: HTMLElement): DimensionObject {
  *
  * Usage: assign the returned 'ref' object to the ref prop of the component to measure
  */
-function useDimensions({liveMeasure = true}: UseDimensionsArgs = {}): UseDimensionsHook {
+function useDimensions({
+  liveMeasure = true,
+}: UseDimensionsArgs = {}): UseDimensionsHook {
   const [dimensions, setDimensions] = useState<DimensionObject | null>(null);
   const [node, setNode] = useState<null | HTMLElement>(null);
 
@@ -86,7 +88,7 @@ function useDimensions({liveMeasure = true}: UseDimensionsArgs = {}): UseDimensi
     return undefined;
   }, [node, liveMeasure]);
 
-  return {measureRef: ref, dimensions, node};
+  return { measureRef: ref, dimensions, node };
 }
 
-export {useDimensions};
+export { useDimensions };
