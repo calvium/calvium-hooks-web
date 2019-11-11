@@ -8,6 +8,8 @@
     "declaration": true,
     "sourceMap": true,
     "rootDir": "./",
+    // Ignore errors in .d.ts files
+    "skipLibCheck": true,
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
