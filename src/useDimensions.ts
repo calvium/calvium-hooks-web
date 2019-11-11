@@ -82,7 +82,6 @@ function useDimensions({liveMeasure = true}: UseDimensionsArgs = {}): UseDimensi
           window.removeEventListener('scroll', measure);
         };
       }
-
     }
     return undefined;
   }, [node, liveMeasure]);
