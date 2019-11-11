@@ -1,0 +1,10 @@
+{
+  "phabricator.uri": "https://projects.calvium.com/",
+  "history.immutable": false,
+  "arc.feature.start.default": "origin/develop",
+  "arc.land.onto.default": "develop",
+  "arc.land.update.default": "develop",
+  "load": ["arcanist/NpmRunScript"],
+  "unit.engine": "NpmRunScript",
+  "npm.run.script": "check-all"
+}
