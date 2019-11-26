@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * Return X and Y of mouse cursor
@@ -8,10 +8,11 @@ export const useMousePosition = () => {
   const [position, setPosition] = useState<{
     x: number | null;
     y: number | null;
-  }>({x: null, y: null});
+  }>({ x: null, y: null });
 
   useEffect(() => {
-    const setFromEvent = (e: MouseEvent) => setPosition({x: e.clientX, y: e.clientY});
+    const setFromEvent = (e: MouseEvent) =>
+      setPosition({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', setFromEvent);
 
     return () => {
