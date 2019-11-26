@@ -47,3 +47,17 @@ const Component = () => {
  return <div></div>
 } 
 ```
+
+useMousePosition
+---
+
+For tracking the X and Y of the mouse cursor
+
+```typescript
+const Component = () => {
+ const {x, y} = useMousePosition();
+ // x and y in pixel screen coordinates
+
+ return null
+} 
+```
