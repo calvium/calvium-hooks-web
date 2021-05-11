@@ -1,7 +1,5 @@
 import {useEffect, useRef} from 'react';
 
-// TODO: remove the any
-
 /**
  * Source: https://usehooks.com/useEventListener/
  */
@@ -20,7 +18,6 @@ export function useEventListener(eventName: string, handler: any, element: any =
   useEffect(
     () => {
       // Make sure element supports addEventListener
-      // On
       const isSupported = element && element.addEventListener;
       if (!isSupported) return;
 
