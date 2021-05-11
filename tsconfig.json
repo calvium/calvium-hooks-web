@@ -7,7 +7,7 @@
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
-    "rootDir": "./",
+    "rootDir": "./src",
     // Ignore errors in .d.ts files
     "skipLibCheck": true,
     "strict": true,
