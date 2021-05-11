@@ -1,6 +1,6 @@
 {
   "name": "@calvium/react-hooks-web",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "author": "Ben Clayton",
   "main": "dist/index.js",
@@ -31,20 +31,20 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
-    "@types/jest": "^24.0.22",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.4",
-    "babel-loader": "^8.0.6",
-    "eslint-plugin-react-hooks": "^2.2.0",
-    "husky": "^3.0.9",
+    "@babel/core": "7.14.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.13.8",
+    "@types/jest": "26.0.23",
+    "@types/react": "17.0.5",
+    "@types/react-dom": "17.0.4",
+    "babel-loader": "^8.2.2",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "6.0.0",
     "prettier": "1.19.1",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "tsdx": "^0.11.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.7.2"
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "tsdx": "0.14.1",
+    "tslib": "2.2.0",
+    "typescript": "4.2.4"
   },
   "dependencies": {}
 }

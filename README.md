@@ -1,6 +1,8 @@
 calvium-hooks-web - Reusable Hooks for React JS Web Development
 =========
 
+![Screenshot](./screenshot.png)
+
 useDimensions
 ----
 
@@ -60,4 +62,36 @@ const Component = () => {
 
  return null
 } 
+```
+
+useEventListener
+---
+
+This hook runs a handler function on the given DOM event.
+It handles checking if addEventListener is supported, adding the event listener, and removal on cleanup.
+
+Source: https://usehooks.com/useEventListener/
+
+```typescript
+// Usage
+function App() {
+  // State for storing mouse coordinates
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+  // Event handler utilizing useCallback ...
+  // ... so that reference never changes.
+  const handler = useCallback(
+    ({ clientX, clientY }) => {
+      // Update coordinates
+      setCoords({ x: clientX, y: clientY });
+    },
+    [setCoords]
+  );
+  // Add event listener using our hook
+  useEventListener("mousemove", handler);
+  return (
+    <h1>
+      The mouse position is ({coords.x}, {coords.y})
+    </h1>
+  );
+}
 ```
